@@ -1,0 +1,61 @@
+.headerContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.innerHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    border: 10px;
+    border-color: lightgray;
+    border-style: solid;
+    width: 400px;
+    border-radius: 10px;
+}
+
+.header {
+    font-weight: bolder;
+    font-size: 48px;
+}
+
+.slogan {
+    font-size: 24px;
+    margin-top: 0px;
+}
+
+.inputPrompt {
+    font-size: 20px;
+}
+
+.controlPanels {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.mainContents {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.pad {
+    width: 1024px;
+    height: 1024px;
+    max-width: 1024px;
+    max-height: 1024px;
+    border: 8px;
+    border-color: lightgray;
+    border-style: solid;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+   
+}

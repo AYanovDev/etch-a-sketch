@@ -7,12 +7,67 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="headerContainer">
+    <div class="innerHeader">
     <h1 class="header">Etch-a-sketch!</h1>
     <p class="slogan">Make your image come to life!</p>
-    <div class="sizeControl">
-        <p class="inputPrompt">How detailed would you like your picture to be? px, 4-128 max</p>
-        <input class="sizeInput" type="number" min="4" max="128">
+    </div>    
     </div>
-    <div class="pad"></div>
+<div class="mainContents">    
+<div class="controlPanels">
+    <div class="sizeControlPanel">
+        <p class="inputPrompt">Chose your resolution.<br>How detailed would you like your picture to be? 32, 64 or 128px</p>
+        <div class="sizeInputContainer">
+        <button class="res32">32 pixels</button>
+        <button class="res64">64 pixels</button>
+        <button class="res128">128 pixels</button>
+        </div>    
+    </div>
+    <div class="colorControlPanel">
+        <p>Chose the color of your brush</p>
+        <input type="radio" name="color" class="white"> White <br>
+        <input type="radio" name="color" class="black"> Black <br>
+        <input type="radio"  name="color" class="green"> Green <br>
+        <input type="radio"  name="color" class="red"> Red <br>
+        <input type="radio"  name="color" class="blue"> Blue <br>
+    </div>
+</div>
+<div class="pad"></div>
+</div>
+    <script>
+        let pad = document.querySelector(".pad")
+        let resolution64px = document.querySelector(".res64");
+        let resolution32px = document.querySelector(".res32");
+        let resolution128px = document.querySelector(".res128");
+        resolution32px.addEventListener("click", function() {
+            let tileNum = 32;
+            generateTile(tileNum);
+        })
+        resolution64px.addEventListener("click", function() {
+            let tileNum = 64;
+            generateTile(tileNum);
+        })
+        resolution128px.addEventListener("click", function() {
+            let tileNum = 128;
+            generateTile(tileNum);
+        })
+        let generateTile = function(tileNum) {
+            alert(`tile num = ${tileNum}`)
+           
+            // const tile = document.createElement("div");
+            // tile.style.height = "1024px";
+            // tile.style.width = "1024px";
+            // tile.style.minWidth = "8px";
+            // tile.style.minHeight = "8px";
+            // tile.style.backgroundColor = "white";
+            // tile.style.border = "1px";
+            // tile.style.borderStyle = "solid";
+            // tile.style.borderColor = "grey";
+            // tile.style.display = "flex";
+            // tile.style.flex = 1;
+            // pad.appendChild(tile);
+        }
+    
+    </script>
 </body>
 </html>
