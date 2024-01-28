@@ -54,19 +54,15 @@
         let generateTile = function(tileNum) {
             alert(`tile num = ${tileNum}`)
            
-            // const tile = document.createElement("div");
-            // tile.style.height = "1024px";
-            // tile.style.width = "1024px";
-            // tile.style.minWidth = "8px";
-            // tile.style.minHeight = "8px";
-            // tile.style.backgroundColor = "white";
-            // tile.style.border = "1px";
-            // tile.style.borderStyle = "solid";
-            // tile.style.borderColor = "grey";
-            // tile.style.display = "flex";
-            // tile.style.flex = 1;
-            // pad.appendChild(tile);
+            for (let i = 0; i < (tileNum*tileNum); i++) {
+            const tile = document.createElement("div");
+            tile.style.height = `${1024/tileNum}px`;
+            tile.style.width = `${1024/tileNum}px`;
+            tile.style.backgroundColor = "white";
+            tile.style.outline = "1px solid grey";
+            pad.appendChild(tile);
         }
+    }
     
     </script>
 </body>

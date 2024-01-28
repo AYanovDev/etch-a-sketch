@@ -47,8 +47,6 @@
 .pad {
     width: 1024px;
     height: 1024px;
-    max-width: 1024px;
-    max-height: 1024px;
     border: 8px;
     border-color: lightgray;
     border-style: solid;
@@ -57,5 +55,6 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-   
+    flex-grow: 0;
+    flex-shrink: 0;
 }
