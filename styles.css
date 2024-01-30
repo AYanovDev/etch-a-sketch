@@ -1,9 +1,15 @@
+body {
+  display: flex;
+  flex-direction: column;
+}
+
 .headerContainer {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 50px;
+  min-width: 1632px;
 }
 
 .innerHeader {
@@ -36,12 +42,20 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width: 100%;
+  flex-shrink: 1;
+  min-width: 300px;
+  gap: 6px;
+  margin-right: 10px;
 }
 
 .mainContents {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  width: 100%;
+  min-width: 100vw;
+  gap: 3px;
 }
 
 .pad {
@@ -57,4 +71,35 @@
   align-items: center;
   flex-grow: 0;
   flex-shrink: 0;
+}
+
+.filler {
+  width: 100%;
+  display: flex;
+  flex-shrink: 1;
+}
+
+.colorControlPanel {
+  outline: 2px rgb(68, 63, 63) solid;
+  padding: 10px;
+  width: 280px;
+  border-radius: 4px;
+}
+
+.colorControlPanel > p,
+label {
+  font-size: 20px;
+}
+
+button {
+  font-size: 16px;
+  color: rgb(22, 21, 21);
+  background-color: lightgray;
+}
+
+.sizeControlPanel {
+  outline: 2px rgb(68, 63, 63) solid;
+  padding: 10px;
+  width: 280px;
+  border-radius: 4px;
 }
