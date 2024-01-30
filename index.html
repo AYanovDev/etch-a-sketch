@@ -1,69 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Etch-a-sketch!</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="headerContainer">
-    <div class="innerHeader">
-    <h1 class="header">Etch-a-sketch!</h1>
-    <p class="slogan">Make your image come to life!</p>
-    </div>    
+      <div class="innerHeader">
+        <h1 class="header">Etch-a-sketch!</h1>
+        <p class="slogan">Make your image come to life!</p>
+      </div>
     </div>
-<div class="mainContents">    
-<div class="controlPanels">
-    <div class="sizeControlPanel">
-        <p class="inputPrompt">Chose your resolution.<br>How detailed would you like your picture to be? 32, 64 or 128px</p>
-        <div class="sizeInputContainer">
-        <button class="res32">32 pixels</button>
-        <button class="res64">64 pixels</button>
-        <button class="res128">128 pixels</button>
-        </div>    
+    <div class="mainContents">
+      <div class="controlPanels">
+        <div class="sizeControlPanel">
+          <p class="inputPrompt">
+            Chose your resolution.<br />How detailed would you like your picture
+            to be? 32, 64, or 128px
+          </p>
+          <div class="sizeInputContainer">
+            <button class="res32">32 pixels</button>
+            <button class="res64">64 pixels</button>
+            <button class="res128">128 pixels</button>
+          </div>
+        </div>
+        <div class="colorControlPanel">
+          <p>Chose the color of your brush</p>
+          <input type="radio" name="color" class="white" /> White <br />
+          <input type="radio" name="color" class="black" /> Black <br />
+          <input type="radio" name="color" class="green" /> Green <br />
+          <input type="radio" name="color" class="red" /> Red <br />
+          <input type="radio" name="color" class="blue" /> Blue <br />
+        </div>
+      </div>
+      <div class="pad"></div>
     </div>
-    <div class="colorControlPanel">
-        <p>Chose the color of your brush</p>
-        <input type="radio" name="color" class="white"> White <br>
-        <input type="radio" name="color" class="black"> Black <br>
-        <input type="radio"  name="color" class="green"> Green <br>
-        <input type="radio"  name="color" class="red"> Red <br>
-        <input type="radio"  name="color" class="blue"> Blue <br>
-    </div>
-</div>
-<div class="pad"></div>
-</div>
     <script>
-        let pad = document.querySelector(".pad")
-        let resolution64px = document.querySelector(".res64");
-        let resolution32px = document.querySelector(".res32");
-        let resolution128px = document.querySelector(".res128");
-        resolution32px.addEventListener("click", function() {
-            let tileNum = 32;
-            generateTile(tileNum);
-        })
-        resolution64px.addEventListener("click", function() {
-            let tileNum = 64;
-            generateTile(tileNum);
-        })
-        resolution128px.addEventListener("click", function() {
-            let tileNum = 128;
-            generateTile(tileNum);
-        })
-        let generateTile = function(tileNum) {
-            alert(`tile num = ${tileNum}`)
-           
-            for (let i = 0; i < (tileNum*tileNum); i++) {
-            const tile = document.createElement("div");
-            tile.style.height = `${1024/tileNum}px`;
-            tile.style.width = `${1024/tileNum}px`;
-            tile.style.backgroundColor = "white";
-            tile.style.outline = "1px solid grey";
-            pad.appendChild(tile);
+      let pad = document.querySelector(".pad");
+      let resolution64px = document.querySelector(".res64");
+      let resolution32px = document.querySelector(".res32");
+      let resolution128px = document.querySelector(".res128");
+
+      resolution32px.addEventListener("click", function () {
+        let tileNum = 32;
+        generateTile(tileNum);
+      });
+      resolution64px.addEventListener("click", function () {
+        let tileNum = 64;
+        generateTile(tileNum);
+      });
+      resolution128px.addEventListener("click", function () {
+        let tileNum = 128;
+        generateTile(tileNum);
+      });
+
+      let colorTiles = function (tile, colorOfTheTile) {
+        tile.addEventListener("mousedown", function () {
+          tile.style.backgroundColor = colorOfTheTile;
+        });
+
+        tile.addEventListener("mousemove", function (event) {
+          if (event.buttons === 1) {
+            tile.style.backgroundColor = colorOfTheTile;
+          }
+        });
+      };
+
+      let generateTile = function (tileNum) {
+        alert(`tile num = ${tileNum}`);
+
+        for (let i = 0; i < tileNum * tileNum; i++) {
+          const tile = document.createElement("div");
+          tile.style.height = `${1024 / tileNum}px`;
+          tile.style.width = `${1024 / tileNum}px`;
+          tile.style.backgroundColor = "white";
+          tile.style.outline = "1px solid grey";
+          tile.draggable = false;
+          tile.ondragstart = false;
+          pad.appendChild(tile);
+
+          let colorTileBlack = document.querySelector(".black");
+          colorTileBlack.addEventListener("click", function () {
+            colorTiles(tile, "black");
+          });
+
+          let colorTileWhite = document.querySelector(".white");
+          colorTileWhite.addEventListener("click", function () {
+            colorTiles(tile, "white");
+          });
+
+          let colorTileGreen = document.querySelector(".green");
+          colorTileGreen.addEventListener("click", function () {
+            colorTiles(tile, "green");
+          });
+
+          let colorTileRed = document.querySelector(".red");
+          colorTileRed.addEventListener("click", function () {
+            colorTiles(tile, "red");
+          });
+
+          let colorTileBlue = document.querySelector(".blue");
+          colorTileBlue.addEventListener("click", function () {
+            colorTiles(tile, "blue");
+          });
         }
-    }
-    
+      };
     </script>
-</body>
+  </body>
 </html>
