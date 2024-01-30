@@ -54,17 +54,48 @@
       let resolution32px = document.querySelector(".res32");
       let resolution128px = document.querySelector(".res128");
 
+      pad.addEventListener("dragstart", (event) => {
+        event.preventDefault();
+      });
+
+      pad.addEventListener("drop", (event) => {
+        event.preventDefault();
+      });
+
+      let isClicked = false;
+
       resolution32px.addEventListener("click", function () {
-        let tileNum = 32;
-        generateTile(tileNum);
+        if (isClicked) {
+          cleanTiles();
+          let tileNum = 32;
+          generateTile(tileNum);
+        } else {
+          let tileNum = 32;
+          generateTile(tileNum);
+          isClicked = true;
+        }
       });
       resolution64px.addEventListener("click", function () {
-        let tileNum = 64;
-        generateTile(tileNum);
+        if (isClicked) {
+          cleanTiles();
+          let tileNum = 64;
+          generateTile(tileNum);
+        } else {
+          let tileNum = 64;
+          generateTile(tileNum);
+          isClicked = true;
+        }
       });
       resolution128px.addEventListener("click", function () {
-        let tileNum = 128;
-        generateTile(tileNum);
+        if (isClicked) {
+          cleanTiles();
+          let tileNum = 128;
+          generateTile(tileNum);
+        } else {
+          let tileNum = 128;
+          generateTile(tileNum);
+          isClicked = true;
+        }
       });
 
       let colorTiles = function (tile, colorOfTheTile) {
@@ -77,6 +108,12 @@
             tile.style.backgroundColor = colorOfTheTile;
           }
         });
+      };
+
+      let cleanTiles = function () {
+        while (pad.firstChild) {
+          pad.removeChild(pad.firstChild);
+        }
       };
 
       let generateTile = function (tileNum) {
